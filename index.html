@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111213">
+  <title>Home · StreamPix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="assets/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="account.js" defer></script>
+  <link rel="stylesheet" href="donate.css">
+  <script src="donate.js" defer></script>
+  <script src="assets/qrcode.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Pular para o conteúdo</a>
+  <header class="header">
+    <a class="brand" href="./index.html" aria-label="StreamPix, início">
+      <span class="brand-icon"><img src="assets/streampix-icon.png" alt="" width="52" height="52"></span>
+      <span class="brand-text">StreamPix</span>
+    </a>
+    <div class="header-account">
+      <span class="account-caption">Minha conta</span>
+      <button class="user-menu" type="button" aria-label="Conta de username" popovertarget="accountPopover">
+        <span class="user-avatar"><span class="material-symbols-rounded" aria-hidden="true">person</span></span>
+        <span class="username">username</span>
+        <span class="material-symbols-rounded account-chevron" aria-hidden="true">expand_more</span>
+      </button>
+    </div>
+    <div class="account-popover" id="accountPopover" popover>
+      <div class="account-popover-head">
+        <span class="user-avatar large"><span class="material-symbols-rounded" aria-hidden="true">person</span></span>
+        <div><span class="section-label">Conectado como</span><strong>username</strong><small>Creator ID SPX-1048</small></div>
+      </div>
+      <button class="account-action" type="button" data-popup="profileDialog"><span class="material-symbols-rounded" aria-hidden="true">account_circle</span>Perfil</button>
+      <button class="account-action" type="button" data-popup="settingsDialog"><span class="material-symbols-rounded" aria-hidden="true">tune</span>Configurações</button>
+      <button class="account-action" type="button" data-popup="docsDialog"><span class="material-symbols-rounded" aria-hidden="true">article</span>Documentação</button>
+      <span class="popover-divider" aria-hidden="true"></span>
+      <button class="account-action danger" type="button"><span class="material-symbols-rounded" aria-hidden="true">logout</span>Sair</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Menu principal">
+      <div class="sidebar-top">
+        <span class="sidebar-caption">Workspace</span>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link active" href="./index.html" aria-current="page" aria-label="Home" title="Home">
+            <span class="material-symbols-rounded" aria-hidden="true">home</span><span class="link-text">Home</span>
+          </a>
+          <a class="sidebar-link" href="#" aria-label="Donates" title="Donates">
+            <span class="material-symbols-rounded" aria-hidden="true">volunteer_activism</span><span class="link-text">Donates</span>
+          </a>
+          <a class="sidebar-link" href="#" aria-label="Widgets" title="Widgets">
+            <span class="material-symbols-rounded" aria-hidden="true">widgets</span><span class="link-text">Widgets</span>
+          </a>
+          <a class="sidebar-link" href="#" aria-label="Profile" title="Profile">
+            <span class="material-symbols-rounded" aria-hidden="true">person</span><span class="link-text">Profile</span>
+          </a>
+          <a class="sidebar-link" href="#" aria-label="Settings" title="Settings">
+            <span class="material-symbols-rounded" aria-hidden="true">settings</span><span class="link-text">Settings</span>
+          </a>
+        </nav>
+      </div>
+      <div class="sidebar-bottom">
+        <a class="sidebar-link logoff" href="#" aria-label="Logoff" title="Logoff">
+          <span class="material-symbols-rounded" aria-hidden="true">logout</span><span class="link-text">Logoff</span>
+        </a>
+        <span class="sidebar-footnote">StreamPix</span>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Fechar menu" title="Fechar menu" aria-controls="sidebar" aria-expanded="true">
+        <span class="material-symbols-rounded" aria-hidden="true">chevron_left</span>
+      </button>
+    </aside>
+
+    <main class="content" id="mainContent">
+      <section class="home-view" aria-labelledby="homeTitle">
+        <div class="page-context"><span>Workspace</span><span aria-hidden="true">/</span><span>Home</span></div>
+        <div class="home-heading">
+          <div><h1 id="homeTitle">Olá, <span>username</span></h1><p>Seu canal, em números.</p></div>
+          <span class="demo-label"><span class="material-symbols-rounded" aria-hidden="true">science</span>Dados de demonstração</span>
+        </div>
+
+        <div class="overview-heading"><h2>Visão geral</h2><span>Últimos 30 dias</span></div>
+        <div class="metric-grid" aria-label="Resumo da conta">
+          <article class="metric-card">
+            <div class="metric-heading"><h3>Incentivos recebidos</h3><span class="metric-icon material-symbols-rounded" aria-hidden="true">redeem</span></div>
+            <p class="metric-value">128</p>
+            <p class="metric-note"><span class="metric-change" data-change="received"></span><span>no período</span></p>
+            <button class="card-expand icon-button" type="button" aria-label="Expandir Incentivos recebidos" data-tooltip="Ver detalhes" data-metric="received"><span class="material-symbols-rounded" aria-hidden="true">open_in_full</span></button>
+          </article>
+          <article class="metric-card">
+            <div class="metric-heading"><h3>Incentivos na fila</h3><span class="metric-icon queue-icon material-symbols-rounded" aria-hidden="true">pending_actions</span></div>
+            <p class="metric-value">17</p>
+            <p class="metric-note"><span class="status-dot"></span>Aguardando exibição</p>
+            <button class="card-expand icon-button" type="button" aria-label="Expandir Incentivos na fila" data-tooltip="Ver detalhes" data-metric="queue"><span class="material-symbols-rounded" aria-hidden="true">open_in_full</span></button>
+          </article>
+          <article class="metric-card balance-metric">
+            <div class="metric-heading"><h3>Saldo</h3><span class="metric-icon balance-icon material-symbols-rounded" aria-hidden="true">account_balance_wallet</span></div>
+            <p class="metric-value"><span class="currency">R$</span> 4.820<span class="cents">,00</span></p>
+            <p class="metric-note"><span class="metric-change" data-change="balance"></span><span>no período</span></p>
+            <button class="card-expand icon-button" type="button" aria-label="Expandir Saldo" data-tooltip="Ver detalhes" data-metric="balance"><span class="material-symbols-rounded" aria-hidden="true">open_in_full</span></button>
+          </article>
+          <article class="metric-card">
+            <div class="metric-heading"><h3>Mensagens</h3><span class="metric-icon material-symbols-rounded" aria-hidden="true">chat_bubble</span></div>
+            <p class="metric-value">34</p>
+            <p class="metric-note"><span class="metric-change" data-change="messages"></span><span>no período</span></p>
+            <button class="card-expand icon-button" type="button" aria-label="Expandir Mensagens" data-tooltip="Ver detalhes" data-metric="messages"><span class="material-symbols-rounded" aria-hidden="true">open_in_full</span></button>
+          </article>
+        </div>
+
+        <article class="chart-card" aria-labelledby="balanceTitle">
+          <div class="chart-header">
+            <div class="chart-heading"><h2 id="balanceTitle">Saldo <span id="balancePeriod">Últimos 30 dias</span></h2><p id="balanceRange" class="date-range"></p></div>
+            <div class="chart-actions">
+              <div class="segmented-control" aria-label="Período do saldo" data-period-controls="main">
+                <button class="chart-control active" type="button" data-days="30" aria-pressed="true">30D</button>
+                <button class="chart-control" type="button" data-days="90" aria-pressed="false">90D</button>
+                <button class="chart-control" type="button" data-days="365" aria-pressed="false">1A</button>
+              </div>
+              <span class="toolbar-divider" aria-hidden="true"></span>
+              <button class="icon-button" id="exportChart" type="button" aria-label="Baixar dados do saldo em CSV" data-tooltip="Baixar CSV"><span class="material-symbols-rounded" aria-hidden="true">download</span></button>
+              <button class="icon-button card-expand" type="button" aria-label="Expandir gráfico de saldo" data-tooltip="Expandir gráfico" data-metric="balance"><span class="material-symbols-rounded" aria-hidden="true">open_in_full</span></button>
+            </div>
+          </div>
+          <div class="chart-legend"><span class="legend-marker" aria-hidden="true"></span>Saldo disponível <span class="chart-unit">em reais (R$)</span></div>
+          <div class="chart-wrap"><canvas id="balanceChart" role="img" aria-label="Evolução do saldo nos últimos 30 dias. Dados de demonstração."></canvas></div>
+          <div class="chart-footer" aria-live="polite">
+            <div><span>Saldo inicial</span><p id="balanceStart"></p></div>
+            <div><span>Variação no período</span><p id="balanceChange" class="positive"></p></div>
+            <div><span>Maior saldo</span><p id="balanceMax"></p></div>
+          </div>
+        </article>
+        <footer class="page-footer"><span>Dados de demonstração</span><span>StreamPix</span></footer>
+      </section>
+    </main>
+  </div>
+
+  <dialog class="modal" id="detailModal" aria-labelledby="modalTitle">
+    <div class="modal-panel">
+      <header class="modal-header">
+        <div><p class="section-label">Visão detalhada</p><h2 id="modalTitle">Saldo</h2></div>
+        <button class="modal-close icon-button" type="button" aria-label="Fechar detalhes" data-tooltip="Fechar"><span class="material-symbols-rounded" aria-hidden="true">close</span></button>
+      </header>
+      <div class="modal-summary"><span id="modalValue"></span><span id="modalGrowth" class="positive"></span><span class="summary-caption">no período</span></div>
+      <div class="modal-controls">
+        <div class="segmented-control" aria-label="Tipo de gráfico" data-type-controls>
+          <button class="chart-control active" type="button" data-type="line" aria-label="Gráfico de linha" data-tooltip="Linha" aria-pressed="true"><span class="material-symbols-rounded" aria-hidden="true">show_chart</span></button>
+          <button class="chart-control" type="button" data-type="bar" aria-label="Gráfico de barras" data-tooltip="Barras" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">bar_chart</span></button>
+          <button class="chart-control" type="button" data-type="area" aria-label="Gráfico de área" data-tooltip="Área" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">area_chart</span></button>
+        </div>
+        <span id="modalRange" class="date-range"></span>
+        <div class="segmented-control" aria-label="Período do gráfico detalhado" data-period-controls="detail">
+          <button class="chart-control" type="button" data-days="7" aria-pressed="false">7D</button>
+          <button class="chart-control active" type="button" data-days="30" aria-pressed="true">30D</button>
+          <button class="chart-control" type="button" data-days="90" aria-pressed="false">90D</button>
+          <button class="chart-control" type="button" data-days="365" aria-pressed="false">1A</button>
+        </div>
+      </div>
+      <div class="detail-chart-wrap"><canvas id="detailChart" role="img" aria-label="Evolução detalhada do indicador selecionado"></canvas></div>
+      <div class="chart-footer modal-footer" aria-live="polite">
+        <div><span>Valor inicial</span><p id="detailStart"></p></div>
+        <div><span>Menor valor</span><p id="detailMin"></p></div>
+        <div><span>Maior valor</span><p id="detailMax"></p></div>
+      </div>
+      <span class="modal-demo">Dados de demonstração</span>
+    </div>
+  </dialog>
+
+  <dialog class="center-dialog" id="profileDialog" aria-labelledby="profileTitle">
+    <div class="center-panel">
+      <header class="center-header">
+        <div><p class="section-label">Conta</p><h2 id="profileTitle">Perfil</h2></div>
+        <button class="dialog-close icon-button" type="button" aria-label="Fechar perfil" data-tooltip="Fechar"><span class="material-symbols-rounded" aria-hidden="true">close</span></button>
+      </header>
+      <div class="profile-card">
+        <span class="user-avatar profile-avatar"><span class="material-symbols-rounded" aria-hidden="true">person</span></span>
+        <div><h3>username</h3><p>Criador StreamPix · Conta verificada</p></div>
+      </div>
+      <div class="info-grid">
+        <div><span>ID da conta</span><p>SPX-1048</p></div>
+        <div><span>Status</span><p>Verificado</p></div>
+        <div><span>Plano</span><p>Creator</p></div>
+        <div><span>Moeda</span><p>BRL</p></div>
+      </div>
+      <section class="compact-section">
+        <h3>Resumo operacional</h3>
+        <p>Perfil preparado para transmissões com incentivos em tempo real, widgets ativos, exportação de dados e documentação centralizada.</p>
+        <div class="mini-stats"><span>128 incentivos</span><span>34 mensagens</span><span>R$ 4.820,00</span></div>
+      </section>
+    </div>
+  </dialog>
+
+  <dialog class="center-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
+    <div class="center-panel">
+      <header class="center-header">
+        <div><p class="section-label">Preferências</p><h2 id="settingsTitle">Configurações</h2></div>
+        <button class="dialog-close icon-button" type="button" aria-label="Fechar configurações" data-tooltip="Fechar"><span class="material-symbols-rounded" aria-hidden="true">close</span></button>
+      </header>
+      <div class="settings-list">
+        <label><span><strong>Notificações</strong><small>Alertas de incentivos e mensagens</small></span><input type="checkbox" checked></label>
+        <label><span><strong>Modo discreto</strong><small>Reduz detalhes sensíveis na dashboard</small></span><input type="checkbox"></label>
+        <label><span><strong>Resumo semanal</strong><small>Receber relatório consolidado</small></span><input type="checkbox" checked></label>
+        <label><span><strong>Confirmação de exportação</strong><small>Solicitar confirmação antes de baixar relatórios</small></span><input type="checkbox"></label>
+        <label><span><strong>Alertas regulatórios</strong><small>Destacar mudanças de uso, segurança e pagamentos</small></span><input type="checkbox" checked></label>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="center-dialog docs-dialog" id="docsDialog" aria-labelledby="docsTitle">
+    <div class="center-panel">
+      <header class="center-header">
+        <div><p class="section-label">StreamPix</p><h2 id="docsTitle">Documentação</h2></div>
+        <button class="dialog-close icon-button" type="button" aria-label="Fechar documentação" data-tooltip="Fechar"><span class="material-symbols-rounded" aria-hidden="true">close</span></button>
+      </header>
+      <div class="docs-layout">
+        <nav class="docs-tabs" aria-label="Categorias da documentação">
+          <button class="docs-tab active" type="button" data-doc="legal" aria-pressed="true"><span class="material-symbols-rounded" aria-hidden="true">gavel</span>Jurídica</button>
+          <button class="docs-tab" type="button" data-doc="regulatory" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">verified_user</span>Regulamentar</button>
+          <button class="docs-tab" type="button" data-doc="usage" aria-pressed="false"><span class="material-symbols-rounded" aria-hidden="true">menu_book</span>Uso</button>
+        </nav>
+        <section class="docs-workspace" aria-label="Documentação StreamPix">
+          <div class="docs-tools">
+            <label class="docs-search"><span class="material-symbols-rounded" aria-hidden="true">search</span><input id="docsSearch" type="search" placeholder="Buscar nas 100 páginas"></label>
+            <span id="docsCounter">100 páginas</span>
+          </div>
+          <div class="docs-browser">
+            <nav class="docs-index" data-doc-index aria-label="Páginas da documentação"></nav>
+            <article class="docs-content" data-doc-panel></article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>
